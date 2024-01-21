@@ -3,6 +3,7 @@ import Landing from "./components/Landing"
 import TopBar from './components/TopBar'
 import { lazy } from 'react'
 import { Suspense } from 'react'
+import NotificationsTab from './components/NotificationsTab'
 
 const TodoManager = lazy(() => import('./components/TodoManager'))
 const Dashboard = lazy(() => import('./components/Dashboard'))
@@ -13,7 +14,14 @@ function App() {
     <div>
       <div>
         <BrowserRouter>
-          <TopBar /><br />
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}>
+            <TopBar />
+            <NotificationsTab />
+          </div>
+          <br />
           <Routes>
             <Route path='/' element={<Landing />} />
             <Route path='/dashboard' element={<Suspense fallback={'loading....'}><Dashboard /></Suspense>} />
