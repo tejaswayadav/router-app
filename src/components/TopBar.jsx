@@ -7,6 +7,7 @@ export default function TopBar() {
             <button onClick={() => navigate('/')}>Landing</button>
             <button onClick={() => navigate('/dashboard')}> Dashboard</button>
             <button onClick={() => navigate('/counter')}> Counter</button>
+            <button onClick={() => navigate('/todo-manager')}>Todo</button>
         </div >
     )
 }
