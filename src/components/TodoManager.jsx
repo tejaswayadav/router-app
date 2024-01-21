@@ -1,7 +1,7 @@
 import { RecoilRoot, useSetRecoilState, useRecoilValue } from "recoil";
-import { todoAtom } from "../store/atoms/todo"
+import { inputFilterAtom, todoAtom } from "../store/atoms/todo"
 import { useState } from "react";
-// import { todoFilter } from "../store/selectors/todoFilter";
+import { todoFilter } from "../store/selectors/todoFilter";
 
 let counter = 1;
 export default function TodoManager() {
@@ -17,10 +17,10 @@ export default function TodoManager() {
 }
 
 function PopulateTodos() {
-    const todos = useRecoilValue(todoAtom)
+    const filteredTodo = useRecoilValue(todoFilter);
     return (
         <div>
-            {todos.map((todo) => <Todo key={todo.id} title={todo.title} description={todo.description} />)}
+            {filteredTodo.map((todo) => <Todo key={todo.id} title={todo.title} description={todo.description} />)}
         </div>
     )
 }
@@ -36,7 +36,7 @@ function Todo({ title, description }) {
 
 function TodoInput() {
     const setTodos = useSetRecoilState(todoAtom);
-    // const filteredTodos = useRecoilValue(todoFilter);
+    const setInput = useSetRecoilState(inputFilterAtom);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
@@ -50,5 +50,8 @@ function TodoInput() {
                 description: description
             }])
         }}>ADD</button>
+        <div>
+            <input type="text" placeholder="filter" onChange={(e) => setInput(e.target.value)} />
+        </div>
     </div>
 }

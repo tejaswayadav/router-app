@@ -41,9 +41,8 @@ function Buttons() {
 
 function CheckEven() {
     const value = useRecoilValue(evenSelector);
-    if (value) {
-        return <div>
-            It is even
-        </div>
-    }
+    return <div>
+        {value ? "Its is even" : ""}
+    </div>
+
 }
