@@ -12,15 +12,12 @@ export default function NotificationsTab() {
 function TabRender() {
     const tabData = useRecoilValue(tabsAtom);
     return (
-        <div style={{
-            display: 'flex',
-            justifyContent: 'space-between'
-        }}>
-            <button>My Network {tabData.network}</button>
-            <button>Jobs {tabData.jobs}</button>
-            <button>Messaging {tabData.messaging}</button>
-            <button>Notifications {tabData.notifications}</button>
-            <button>Me</button>
+        <div>
+            <button className="ml-2 px-4 rounded-md bg-indigo-200"> My Network {tabData.network}</button>
+            <button className="ml-2 px-4 rounded-md bg-indigo-200">Jobs {tabData.jobs}</button>
+            <button className="ml-2 px-4 rounded-md bg-indigo-200">Messaging {tabData.messaging}</button>
+            <button className="ml-2 px-4 rounded-md bg-indigo-200">Notifications {tabData.notifications}</button>
+            <button className="ml-2 px-4 rounded-md bg-indigo-200">Me</button>
         </div>
     )
 }

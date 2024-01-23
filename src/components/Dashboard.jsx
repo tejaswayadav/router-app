@@ -17,9 +17,9 @@ function News({ id }) {
         return <div>loading....</div>
     } else if (currentNews.state == 'hasValue') {
         return (
-            <div>
-                <h3>{currentNews.contents.title}</h3>
-                <h5>{currentNews.contents.description}</h5>
+            <div className="mt-8 ml-16 grid">
+                <span className="pt-4 text-2xl font-bold text-indigo-500">{currentNews.contents.title}</span>
+                <span className="text-md text-gray-500">{currentNews.contents.description}</span>
             </div>
         )
     }

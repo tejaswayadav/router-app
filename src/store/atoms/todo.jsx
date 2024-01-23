@@ -2,7 +2,11 @@ import { atom } from "recoil";
 
 export const todoAtom = atom({
     key: 'todoAtom',
-    default: []
+    default: [{
+        id: 0,
+        title: 'Title',
+        description: 'This is a sample description'
+    }]
 })
 
 export const inputFilterAtom = atom({
